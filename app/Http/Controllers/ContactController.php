@@ -25,4 +25,16 @@ class ContactController extends Controller {
         //     'message' => 'required|min:15|max:500'
         // ]);
     }
+    public function allData() {
+
+        $contact = new Contact;
+        return view('messages', ['data' => $contact->where('subject', '=', 'Hello')->get()]);
+
+        // различные выборки и сортировки
+        //return view('messages', ['data' => $contact->orderBy('id', 'asc')->take(2)->skip(1)->get()]);
+
+        //dd(Contact::all());
+        // $contact = new Contact;
+        // dd($contact->all());
+    }
 }
